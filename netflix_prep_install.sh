@@ -4,7 +4,7 @@ sudo apt-get update 2>&1 | dialog --title "Updating package database and install
 if [ ! -d /usr/share/doc/python-crypto ]; then
 	sudo apt-get install -q python-crypto
 fi
-sudo apt-get install -q -y build-essential python-pip
+sudo apt-get install -q -y build-essential python-pip zip
 
 dialog --title "Installing python dependencies..." --infobox "\nPlease wait...\n" 11 70
 sudo pip install -q -U setuptools
@@ -35,6 +35,14 @@ unzip -o -q -d /home/osmc/.kodi/addons/ script.module.urllib3-1.22.zip
 unzip -o -q -d /home/osmc/.kodi/addons/ script.module.requests-2.19.1.zip
 unzip -o -q -d /home/osmc/.kodi/addons/ script.module.inputstreamhelper-0.3.3.zip
 unzip -o -q -d /home/osmc/.kodi/addons/ script.module.addon.signals-0.0.3.zip
+#unzip netflix addon to add a few lines
+unzip  -q plugin.video.netflix.zip
+cd plugin.video.netflix-master/resources/lib/
+sed -i.bak '/# Video/i\#PRK Profile\n"hevc-main10-L30-dash-cenc-prk",' ./MSL.py
+cd ../../..
+rm plugin.video.netflix.zip
+zip -r plugin.video.netflix.zip plugin.video.netflix-master/
+
 
 rm script*.zip
 dialog --title "Installation finnished!" --msgbox "\nThank you for using my installer\nNow go to addon-browsser and choose install from zip\nNavigate to homefolder/addons and install netflix plugin." 11 70
