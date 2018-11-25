@@ -9,7 +9,7 @@ sudo apt-get install -q -y build-essential python-pip zip
 dialog --title "Installing python dependencies..." --infobox "\nPlease wait...\n" 11 70
 sudo pip install -q -U setuptools
 sudo pip install -q wheel
-sudo pip install -q pycryptodomex
+sudo pip install -q pycryptodomex==3.7.0
 
 mkdir addons
 cd addons
