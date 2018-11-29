@@ -14,8 +14,8 @@ sudo pip install -q pycryptodomex==3.7.0
 mkdir addons
 cd addons
 dialog --title "Downloading Netflix add-on and dependencies" --infobox "\nPlease wait...\n" 11 70
-wget -q https://github.com/asciidisco/plugin.video.netflix/archive/master.zip
-mv master.zip  plugin.video.netflix.zip
+wget -q https://github.com/asciidisco/plugin.video.netflix/archive/msl2.zip
+mv msl2.zip  plugin.video.netflix.zip
 wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.certifi/script.module.certifi-2017.07.27.1.zip
 wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.chardet/script.module.chardet-3.0.4.zip
 wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.idna/script.module.idna-2.6.zip
@@ -36,12 +36,12 @@ unzip -o -q -d /home/osmc/.kodi/addons/ script.module.requests-2.19.1.zip
 unzip -o -q -d /home/osmc/.kodi/addons/ script.module.inputstreamhelper-0.3.3.zip
 unzip -o -q -d /home/osmc/.kodi/addons/ script.module.addon.signals-0.0.3.zip
 #unzip netflix addon to add a few lines
-unzip  -q plugin.video.netflix.zip
-cd plugin.video.netflix-master/resources/lib/
-sed -i.bak '/# Video/i\#PRK Profile\n"hevc-main10-L30-dash-cenc-prk",' ./MSL.py
-cd ../../..
-rm plugin.video.netflix.zip
-zip -r plugin.video.netflix.zip plugin.video.netflix-master/
+#unzip  -q plugin.video.netflix.zip
+#cd plugin.video.netflix-master/resources/lib/
+#sed -i.bak '/# Video/i\#PRK Profile\n"hevc-main10-L30-dash-cenc-prk",' ./MSL.py
+#cd ../../..
+#rm plugin.video.netflix.zip
+#zip -r plugin.video.netflix.zip plugin.video.netflix-master/
 
 
 rm script*.zip
