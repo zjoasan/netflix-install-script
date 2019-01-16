@@ -4,7 +4,7 @@ sudo apt-get update 2>&1 | dialog --title "Updating package database and install
 if [ ! -d /usr/share/doc/python-crypto ]; then
 	sudo apt-get install -q python-crypto
 fi
-sudo apt-get install -q -y build-essential python-pip zip
+sudo apt-get install -q -y build-essential python-pip
 
 dialog --title "Installing python dependencies..." --infobox "\nPlease wait...\n" 11 70
 sudo pip install -q -U setuptools
