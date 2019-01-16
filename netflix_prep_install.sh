@@ -13,32 +13,12 @@ sudo pip install -q pycryptodomex==3.7.0
 
 mkdir addons
 cd addons
-dialog --title "Downloading Netflix add-on and dependencies" --infobox "\nPlease wait...\n" 11 70
+dialog --title "Downloading Netflix add-on" --infobox "\nPlease wait...\n" 11 70
 wget -q https://github.com/asciidisco/plugin.video.netflix/archive/master.zip
 mv master.zip  plugin.video.netflix.zip
-wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.certifi/script.module.certifi-2017.07.27.1.zip
-wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.chardet/script.module.chardet-3.0.4.zip
-wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.idna/script.module.idna-2.6.zip
-wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.urllib3/script.module.urllib3-1.22.zip
-wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.requests/script.module.requests-2.19.1.zip
-wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.inputstreamhelper/script.module.inputstreamhelper-0.3.3.zip
-wget -q http://ftp.fau.de/osmc/osmc/download/kodi/addons/leia/script.module.addon.signals/script.module.addon.signals-0.0.3.zip
 
 sudo systemctl stop mediacenter
-dialog --title "Installing dependencies..." --infobox "\nPlease wait...\n" 11 70
 sleep 5
-
-unzip -o -q -d /home/osmc/.kodi/addons/ script.module.certifi-2017.07.27.1.zip
-unzip -o -q -d /home/osmc/.kodi/addons/ script.module.chardet-3.0.4.zip
-unzip -o -q -d /home/osmc/.kodi/addons/ script.module.idna-2.6.zip
-unzip -o -q -d /home/osmc/.kodi/addons/ script.module.urllib3-1.22.zip
-unzip -o -q -d /home/osmc/.kodi/addons/ script.module.requests-2.19.1.zip
-unzip -o -q -d /home/osmc/.kodi/addons/ script.module.inputstreamhelper-0.3.3.zip
-unzip -o -q -d /home/osmc/.kodi/addons/ script.module.addon.signals-0.0.3.zip
-
-
-
-rm script*.zip
 dialog --title "Installation finnished!" --msgbox "\nThank you for using my installer\nNow go to addon-browsser and choose install from zip\nNavigate to homefolder/addons and install netflix plugin." 11 70
 sudo systemctl start mediacenter
 
