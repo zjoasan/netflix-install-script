@@ -9,12 +9,12 @@ sudo apt-get install -q -y build-essential python-pip libnss3 libnspr4
 dialog --title "Installing python dependencies..." --infobox "\nPlease wait...\n" 11 70
 sudo pip install -q -U setuptools
 sudo pip install -q wheel
-sudo pip install -q pycryptodomex==3.7.0
+sudo pip install -q pycryptodomex==3.8.2
 
 mkdir addons
 cd addons
 dialog --title "Downloading Netflix add-on" --infobox "\nPlease wait...\n" 11 70
-wget -q https://github.com/asciidisco/plugin.video.netflix/archive/master.zip
+wget -q https://github.com/CastagnaIT/plugin.video.netflix/archive/master.zip
 mv master.zip  plugin.video.netflix.zip
 
 sudo systemctl stop mediacenter
