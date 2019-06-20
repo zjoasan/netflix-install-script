@@ -16,7 +16,7 @@ cd addons
 dialog --title "Downloading Netflix add-on" --infobox "\nPlease wait...\n" 11 70
 wget -q https://github.com/CastagnaIT/plugin.video.netflix/archive/master.zip
 if [ -f "./plugin.video.netflix.zip" ]; then
-      rm plugin.video.netflix.zip
+      mv plugin.video.netflix.zip plugin.video.netflix.zip.old
 fi
 mv master.zip  plugin.video.netflix.zip
 
