@@ -33,6 +33,8 @@ mv master.zip  plugin.video.netflix.zip
 sudo systemctl stop mediacenter
 sleep 5
 dialog --title "Installation finnished!" --msgbox "\nThank you for using my installer\nNow go to addon-browsser and choose install from zip\nNavigate to homefolder/addons and install netflix plugin." 11 70
-rm ./netflix_prep_install.sh
+if [ -f "/home/osmc/netflix_prep_install.sh" ]; then
+	rm /home/osmc/netflix_prep_install.sh
+fi	
 sudo systemctl start mediacenter
 
