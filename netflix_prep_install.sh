@@ -1,6 +1,6 @@
 #!/bin/bash
-#Set UTF-8; e.g. “en_US.UTF-8” or “de_DE.UTF-8”:
-export LC_ALL=“en_US.UTF-8”
+#Set UTF-8; e.g. "en_US.UTF-8" or "de_DE.UTF-8":
+export LC_ALL="en_US.UTF-8"
 
 #Tell ncurses to use line characters that work with UTF-8.
 export NCURSES_NO_UTF8_ACS=1
