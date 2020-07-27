@@ -10,7 +10,7 @@ sudo apt-get update 2>&1 | dialog --title "Updating package database and install
 if [ ! -d /usr/share/doc/python-crypto ]; then
 	sudo apt-get install -q python-crypto
 fi
-sudo apt-get install -q -y build-essential python-pip libnss3 libnspr4
+sudo apt-get install -q -y build-essential python-pip libnss3 libnspr4 kodi-inputstream-adaptive
 
 dialog --title "Installing python dependencies..." --infobox "\nPlease wait...\n" 11 70
 sudo pip install -q -U setuptools
@@ -29,7 +29,7 @@ if [ -f "./plugin.video.netflix.zip" ]; then
 	mv plugin.video.netflix.zip plugin.video.netflix.zip.old
 fi
 mv master.zip  plugin.video.netflix.zip
-echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' >> /etc/sudoers
+sudo echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' >> /etc/sudoers
 
 sudo systemctl stop mediacenter
 sleep 5
