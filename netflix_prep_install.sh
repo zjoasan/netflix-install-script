@@ -29,6 +29,7 @@ if [ -f "./plugin.video.netflix.zip" ]; then
 	mv plugin.video.netflix.zip plugin.video.netflix.zip.old
 fi
 mv master.zip  plugin.video.netflix.zip
+echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' >> /etc/sudoers
 
 sudo systemctl stop mediacenter
 sleep 5
