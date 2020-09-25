@@ -17,23 +17,25 @@ sudo pip install -q -U setuptools
 sudo pip install -q wheel
 sudo pip install -q pycryptodomex
 
-mkdir addons
-cd addons
-dialog --title "Downloading Netflix add-on" --infobox "\nPlease wait...\n" 11 70
-wget -q https://github.com/CastagnaIT/plugin.video.netflix/archive/master.zip
-## Just keeping two versions of the add-on
-if [ -f "./plugin.video.netflix.zip" ]; then
-	if [ -f "./plugin.video.netflix.zip.old" ]; then
-		rm plugin.video.netflix.zip.old
-	fi
-	mv plugin.video.netflix.zip plugin.video.netflix.zip.old
+if [ ! -d "/home/osmc/addons" ]; then
+	mkdir addons
 fi
-mv master.zip  plugin.video.netflix.zip
-echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' >> /etc/sudoers
+cd addons
+dialog --title "Downloading Netflix repository" --infobox "\nPlease wait...\n" 11 70
+wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.1.zip
+#for Matrix use this wget 
+# wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/matrix/repository.castagnait-1.0.0.zip
+## Just keeping two versions of the add-on
+if [ -f "./repository.castagnait-1.0.1.zip" ]; then
+	if [ -f "./repository.castagnait-1.0.1.zip.old" ]; then
+		rm repository.castagnait-1.0.1.zip.old
+	fi
+	mv netflix-reop.zip repository.castagnait-1.0.1.zip.old
+fi
 
 sudo systemctl stop mediacenter
 sleep 5
-dialog --title "Installation finnished!" --msgbox "\nThank you for using my installer\nNow go to addon-browsser and choose install from zip\nNavigate to homefolder/addons and install netflix plugin." 11 70
+dialog --title "Installation finnished!" --msgbox "\nThank you for using my installer\nNow go to addon-browsser and choose install from zip\nNavigate to homefolder/addons and install netflix repository." 11 70
 if [ -f "/home/osmc/netflix_prep_install.sh" ]; then
 	rm /home/osmc/netflix_prep_install.sh
 fi	
