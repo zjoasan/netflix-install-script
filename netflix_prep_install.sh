@@ -33,6 +33,9 @@ if [ -f "./repository.castagnait-1.0.1.zip" ]; then
 	mv netflix-reop.zip repository.castagnait-1.0.1.zip.old
 fi
 
+#from a rasbian problem solution for extracting the widevine libary, dont know if it's a OSMC issue though, don't se a real security issue, but you do as you please with this line, worked before without it in OSMC
+sudo echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' >> /etc/sudoers
+
 sudo systemctl stop mediacenter
 sleep 5
 dialog --title "Installation finnished!" --msgbox "\nThank you for using my installer\nNow go to addon-browsser and choose install from zip\nNavigate to homefolder/addons and install netflix repository." 11 70
