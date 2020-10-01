@@ -26,11 +26,12 @@ wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/
 #for Matrix use this wget 
 # wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/matrix/repository.castagnait-1.0.0.zip
 ## Just keeping two versions of the add-on
-if [ -f "./repository.castagnait-1.0.1.zip" ]; then
-	if [ -f "./repository.castagnait-1.0.1.zip.old" ]; then
-		rm repository.castagnait-1.0.1.zip.old
+if [ -f "./netflix-repo.zip" ]; then
+	if [ -f "./netflix-repo.zip.old" ]; then
+		rm netflix-repo.zip.old
 	fi
-	mv netflix-reop.zip repository.castagnait-1.0.1.zip.old
+	mv netflix-repo.zip netflix-repo.zip.old
+	
 fi
 
 #from a rasbian problem solution for extracting the widevine libary, dont know if it's a OSMC issue though, don't se a real security issue, but you do as you please with this line, worked before without it in OSMC
