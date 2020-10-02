@@ -35,7 +35,7 @@ if [ -f "./netflix-repo.zip" ]; then
 fi
 
 #from a rasbian problem solution for extracting the widevine libary, dont know if it's a OSMC issue though, don't se a real security issue, but you do as you please with this line, worked before without it in OSMC
-sudo echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' >> /etc/sudoers
+echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' | sudo tee -a /etc/sudoers
 
 sudo systemctl stop mediacenter
 sleep 5
