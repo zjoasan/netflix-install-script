@@ -25,20 +25,22 @@ if [ ! -d "/home/osmc/addons" ]; then
 fi
 cd addons
 dialog --title "Downloading Netflix repository" --infobox "\nPlease wait...\n" 11 70
-wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.1.zip
-#for Matrix use this wget 
-# wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/matrix/repository.castagnait-1.0.0.zip
+
 ## Just keeping two versions of the add-on
 if [ -f "./netflix-repo.zip" ]; then
 	if [ -f "./netflix-repo.zip.old" ]; then
 		rm netflix-repo.zip.old
 	fi
 	mv netflix-repo.zip netflix-repo.zip.old
-	
 fi
+wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.1.zip
+#for Matrix use this wget 
+# wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/matrix/repository.castagnait-1.0.0.zip
 
 #from a rasbian problem solution for extracting the widevine libary, dont know if it's a OSMC issue though, don't se a real security issue, but you do as you please with this line, worked before without it in OSMC
-echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe"' | sudo tee -a /etc/sudoers
+if [ ! $(sudo cat /etc/sudoers | grep 'osmc ALL=NOPASSWD:/bin/mount,' | wc -l ]: then
+	sudo sh -c  "echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe' >> /etc/sudoers"
+fi
 
 sudo systemctl stop mediacenter
 sleep 5
