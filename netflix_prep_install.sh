@@ -38,7 +38,7 @@ wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/
 # wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/matrix/repository.castagnait-1.0.0.zip
 
 #from a rasbian problem solution for extracting the widevine libary, dont know if it's a OSMC issue though, don't se a real security issue, but you do as you please with this line, worked before without it in OSMC
-if [ ! $(sudo cat /etc/sudoers | grep 'osmc ALL=NOPASSWD:/bin/mount,' | wc -l ]: then
+if [ ! $(sudo cat /etc/sudoers | grep 'osmc ALL=NOPASSWD:/bin/mount,' | wc -l) ]; then
 	sudo sh -c  "echo 'osmc ALL=NOPASSWD:/bin/mount,/bin/umount,/sbin/losetup,/sbin/modprobe' >> /etc/sudoers"
 fi
 
