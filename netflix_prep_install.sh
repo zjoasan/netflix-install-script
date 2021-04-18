@@ -67,6 +67,7 @@ if [[ $NonDecIV -ge $version ]]; then
    kodi-send --action="InstallAddon(script.module.idna)"
    kodi-send --action="InstallAddon(script.module.urllib3)"
    kodi-send --action="InstallAddon(script.module.requests)"
+   dialog --title "Kodi interaction!" --msgbox "\nInstalling some addons needed\nThey need user confirmation, so look at your Kodi screen." 11 70
    kodi-send --action="InstallAddon(script.module.myconnpy)"
    kodi-send --action="InstallAddon(script.module.inputstreamhelper)"
 fi   
