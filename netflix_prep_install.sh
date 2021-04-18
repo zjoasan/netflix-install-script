@@ -16,8 +16,9 @@ Version="19"
 # Program name must be a valid command.
 command -v $Program >/dev/null 2>&1 || { echo "Command: $Program not found."; exit 99; }
 InstalledVersion=$( "$Program" --version | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/' )
+NonDecIV=${InstalledVersion%.*}
 sudo apt-get update 2>&1 | dialog --title "Updating package database and installing needed .deb packages..." --infobox "\nPlease wait...\n" 11 70 
-if [[ $InstalledVersion -lt $version ]]; then
+if [[ $NonDecIV -lt $version ]]; then
    if [ ! -d /usr/share/doc/python-crypto ]; then
 	sudo apt-get install -q -y python-crypto
    fi
@@ -52,14 +53,14 @@ if [ -f "./netflix-repo.zip" ]; then
 	mv netflix-repo.zip netflix-repo.zip.old
 fi
 
-if [[ $InstalledVersion -lt $version ]]; then
+if [[ $NonDecIV -lt $version ]]; then
    wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.1.zip
 else
    wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/matrix/repository.castagnait-1.0.0.zip
 fi
 
 #fix for non automatic dependcies install, had the same issue with nightly leia
-if [[ $InstalledVersion -ge $version ]]; then
+if [[ $NonDecIV -ge $version ]]; then
    kodi-send --action="InstallAddon(script.module.addon.signals)"
    kodi-send --action="InstallAddon(script.module.certifi)"
    kodi-send --action="InstallAddon(script.module.chardet)"
