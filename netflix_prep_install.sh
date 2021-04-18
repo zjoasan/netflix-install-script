@@ -68,6 +68,7 @@ if [[ $NonDecIV -ge $version ]]; then
    kodi-send --action="InstallAddon(script.module.urllib3)"
    kodi-send --action="InstallAddon(script.module.requests)"
    kodi-send --action="InstallAddon(script.module.myconnpy)"
+   kodi-send --action="InstallAddon(script.module.inputstreamhelper)"
 fi   
  
 sudo systemctl stop mediacenter
