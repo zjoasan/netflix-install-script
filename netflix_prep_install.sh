@@ -32,11 +32,7 @@ if [[ $NonDecIV -lt $version ]]; then
 else
    dialog --title "Installing python3 dependencies..." --infobox "\nPlease wait...\n" 11 70
 
-   sudo apt-get install python3-crypto
-   sudo apt-get install build-essential python3-pip
-   sudo python3 -m pip install -U setuptools
-   sudo python3 -m pip install wheel
-   sudo python3 -m pip install pycryptodomex
+   sudo apt-get install python3-crypto python3-pycryptodome python3-pip
 fi
 
 if [ ! -d "/home/osmc/addons" ]; then
