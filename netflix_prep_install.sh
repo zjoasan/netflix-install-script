@@ -51,9 +51,9 @@ if [ -f "./netflix-repo.zip" ]; then
 fi
 
 if [[ $NonDecIV -lt $version ]]; then
-   wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.1.zip
+   wget -q -O netflix-repo.zip https://github.com/CastagnaIT/repository.castagnait/blob/kodi/repository.castagnait-2.0.0.zip
 else
-   wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/raw/matrix/repository.castagnait-1.0.0.zip
+   wget -q -O netflix-repo.zip https://github.com/castagnait/repository.castagnait/blob/kodi/repository.castagnait-2.0.0.zip
 fi
 
 #fix for non automatic dependcies install, had the same issue with nightly leia
